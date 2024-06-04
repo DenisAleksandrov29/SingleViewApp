@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ContactListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+final class ContactListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,27 +19,8 @@ class ContactListViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.dataSource = self
         tableView.delegate = self
     }
-    
-    // MARK: - UITableViewDataSource Methods
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataStore.people.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let person = dataStore.people[indexPath.row]
-        let fullName = "\(person.firstName) \(person.lastName)"
-        cell.textLabel?.text = fullName
-        return cell
-    }
-    
-    // MARK: - UITableViewDelegate Methods
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "showDetail", sender: indexPath)
-    }
-    
-    // MARK: - Navigation
+
+// MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail",
            let destinationVC = segue.destination as? DetailViewController,
@@ -53,5 +34,27 @@ class ContactListViewController: UIViewController, UITableViewDataSource, UITabl
     }
 }
 
+// MARK: - Extension UITableViewDataSource, UITableViewDelegate
+extension ContactListViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataStore.people.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let person = dataStore.people[indexPath.row]
+        let fullName = "\(person.firstName) \(person.lastName)"
+        cell.textLabel?.text = fullName
+        return cell
+    }
+}
 
+extension ContactListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "showDetail", sender: indexPath)
+    }
+}
 
