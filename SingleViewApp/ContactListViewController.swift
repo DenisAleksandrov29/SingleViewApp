@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ContactListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,39 +19,36 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
         tableView.delegate = self
     }
-
-    // MARK: - UITableViewDataSource Methods
     
+    // MARK: - UITableViewDataSource Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataStore.firstNames.count
+        return dataStore.people.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let fullName = "\(dataStore.firstNames[indexPath.row]) \(dataStore.lastNames[indexPath.row])"
+        let person = dataStore.people[indexPath.row]
+        let fullName = "\(person.firstName) \(person.lastName)"
         cell.textLabel?.text = fullName
         return cell
     }
 
     // MARK: - UITableViewDelegate Methods
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "showDetail", sender: indexPath)
     }
-
+    
     // MARK: - Navigation
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail",
            let destinationVC = segue.destination as? DetailViewController,
            let indexPath = sender as? IndexPath {
-            let fullName = "\(dataStore.firstNames[indexPath.row]) \(dataStore.lastNames[indexPath.row])"
-            let phone = dataStore.phones[indexPath.row]
-            let email = dataStore.emails[indexPath.row]
+            let person = dataStore.people[indexPath.row]
+            let fullName = "\(person.firstName) \(person.lastName)"
             destinationVC.fullName = fullName
-            destinationVC.phone = phone
-            destinationVC.email = email
+            destinationVC.phone = person.phone
+            destinationVC.email = person.email
         }
     }
 }
