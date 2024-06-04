@@ -8,11 +8,11 @@
 import UIKit
 
 class ContactListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     let dataStore = DataStore.shared
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +32,7 @@ class ContactListViewController: UIViewController, UITableViewDataSource, UITabl
         cell.textLabel?.text = fullName
         return cell
     }
-
+    
     // MARK: - UITableViewDelegate Methods
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

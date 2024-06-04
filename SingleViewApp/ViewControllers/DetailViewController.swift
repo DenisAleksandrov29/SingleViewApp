@@ -16,7 +16,7 @@ class DetailViewController: UIViewController {
     var fullName: String?
     var phone: String?
     var email: String?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
