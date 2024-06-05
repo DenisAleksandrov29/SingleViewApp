@@ -15,6 +15,7 @@
 		874ADA1B2C0F3E9C001CB429 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 874ADA1A2C0F3E9C001CB429 /* Base */; };
 		874ADA232C0F3F31001CB429 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874ADA222C0F3F31001CB429 /* DetailViewController.swift */; };
 		874ADA252C0F4164001CB429 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874ADA242C0F4164001CB429 /* DataStore.swift */; };
+		879246A12C10B0BE00375AE1 /* ContactsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879246A02C10B0BE00375AE1 /* ContactsDetailViewController.swift */; };
 		87954FA82C0F488A00824F36 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87954FA72C0F488A00824F36 /* Person.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		874ADA1C2C0F3E9C001CB429 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		874ADA222C0F3F31001CB429 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		874ADA242C0F4164001CB429 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		879246A02C10B0BE00375AE1 /* ContactsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsDetailViewController.swift; sourceTree = "<group>"; };
 		87954FA72C0F488A00824F36 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +80,7 @@
 			children = (
 				874ADA122C0F3E9A001CB429 /* ContactListViewController.swift */,
 				874ADA222C0F3F31001CB429 /* DetailViewController.swift */,
+				879246A02C10B0BE00375AE1 /* ContactsDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				87954FA82C0F488A00824F36 /* Person.swift in Sources */,
 				874ADA132C0F3E9A001CB429 /* ContactListViewController.swift in Sources */,
 				874ADA0F2C0F3E9A001CB429 /* AppDelegate.swift in Sources */,
+				879246A12C10B0BE00375AE1 /* ContactsDetailViewController.swift in Sources */,
 				874ADA112C0F3E9A001CB429 /* SceneDelegate.swift in Sources */,
 				874ADA252C0F4164001CB429 /* DataStore.swift in Sources */,
 				874ADA232C0F3F31001CB429 /* DetailViewController.swift in Sources */,
